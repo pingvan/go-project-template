@@ -7,7 +7,7 @@ import (
 	"syscall"
 
 	"go-project-template/internal/config"
-	"go-project-template/internal/logger"
+	"go-project-template/internal/logging"
 	"go-project-template/internal/migrations"
 	"go-project-template/internal/repository"
 
@@ -18,7 +18,7 @@ func main() {
 	ctx, stop := signal.NotifyContext(context.Background(), os.Interrupt, syscall.SIGINT)
 	defer stop()
 
-	logger := logger.Logger
+	logger := logging.GetLogger()
 
 	cfg, err := config.LoadConfig()
 	if err != nil {

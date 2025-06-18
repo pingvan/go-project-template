@@ -1,4 +1,4 @@
-package logger
+package logging
 
 import (
 	"bytes"
@@ -10,10 +10,13 @@ import (
 	"go.uber.org/zap/zapcore"
 )
 
-var Logger *zap.Logger
+var logger *zap.Logger
 
-func init() {
-	Logger = getLogger()
+func GetLogger() *zap.Logger {
+	if logger == nil {
+		logger = getLogger()
+	}
+	return logger
 }
 
 func getLogger() *zap.Logger {
