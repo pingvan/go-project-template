@@ -10,12 +10,13 @@ import (
 )
 
 type Config struct {
-	DB_HOST           string
-	DB_PORT           string
-	DB_NAME           string
-	DB_USER           string
-	DB_PASSWORD       string
-	MIGRATIONS_SOURCE string
+	DB_HOST            string
+	DB_PORT            string
+	DB_NAME            string
+	DB_USER            string
+	DB_PASSWORD        string
+	MIGRATIONS_SOURCE  string
+	TELEGRAM_BOT_TOKEN string
 }
 
 func LoadConfig(filenames ...string) (*Config, error) {
@@ -23,12 +24,13 @@ func LoadConfig(filenames ...string) (*Config, error) {
 		return nil, err
 	}
 	return &Config{
-		DB_HOST:           getStringEnv("DB_HOST", ""),
-		DB_PORT:           getStringEnv("DB_PORT", ""),
-		DB_NAME:           getStringEnv("DB_NAME", ""),
-		DB_USER:           getStringEnv("DB_USER", ""),
-		DB_PASSWORD:       getStringEnv("DB_PASSWORD", ""),
-		MIGRATIONS_SOURCE: getStringEnv("MIGRATIONS_SOURCE", "file://migrations"),
+		DB_HOST:            getStringEnv("DB_HOST", ""),
+		DB_PORT:            getStringEnv("DB_PORT", ""),
+		DB_NAME:            getStringEnv("DB_NAME", ""),
+		DB_USER:            getStringEnv("DB_USER", ""),
+		DB_PASSWORD:        getStringEnv("DB_PASSWORD", ""),
+		MIGRATIONS_SOURCE:  getStringEnv("MIGRATIONS_SOURCE", "file://migrations"),
+		TELEGRAM_BOT_TOKEN: getStringEnv("TELEGRAM_BOT_TOKEN", ""),
 	}, nil
 }
 

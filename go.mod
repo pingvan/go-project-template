@@ -3,6 +3,7 @@ module go-project-template
 go 1.24.1
 
 require (
+	github.com/go-telegram/bot v1.15.0
 	github.com/golang-migrate/migrate/v4 v4.18.3
 	github.com/jackc/pgx/v5 v5.5.4
 	github.com/joho/godotenv v1.5.1
